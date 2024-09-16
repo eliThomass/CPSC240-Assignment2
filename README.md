@@ -3,7 +3,7 @@ addition and subtraction in x86 Assembly
 
 ## *Addition Section*
 
--    Design a 16-bit addition program "addition.asm", and use assembly language to realize the function of the following C++ instructions. NOTE: variable sizes and program functions should be equivalent to C/C++ instructions. 
+-     Design a 16-bit addition program "addition.asm", and use assembly language to realize the function of the following C++ instructions. NOTE: variable sizes and program functions should be equivalent to C/C++ instructions. 
     	unsigned short num1 = 0xFEDC; 	// use dw to declare 16-bit variable 
     	unsigned short num2 = 0x1234; 	// use dw to declare 16-bit variable 
     	unsigned int sum = 0; 	// use dd to declare 32-bit variable 
