@@ -7,14 +7,14 @@
      7                                  section .text
      8                                  	global _start
      9                                  _start:
-    10 00000000 66B80000                	mov ax, 0
-    11 00000004 66BB0000                	mov bx, 0
-    12 00000008 668B0425[00000000]      	mov ax, word[num1]
-    13 00000010 66030425[02000000]      	add ax, word[num2]
-    14 00000018 6683D300                	adc bx, 0
-    15 0000001C 66890425[04000000]      	mov word[sum], ax
-    16 00000024 66891C25[06000000]      	mov word[sum+2], bx
-    17                                  	
+    10 00000000 66B80000                	mov ax, 0				; clearing ax & bx register
+    11 00000004 66BB0000                	mov bx, 0				
+    12 00000008 668B0425[00000000]      	mov ax, word[num1]		; adding num1 to ax
+    13 00000010 66030425[02000000]      	add ax, word[num2]		; adding num2 to ax, overflow
+    14 00000018 6683D300                	adc bx, 0				; adding carry to bx
+    15 0000001C 66890425[04000000]      	mov word[sum], ax		; adding ax (lower 16 bits) to sum
+    16 00000024 66891C25[06000000]      	mov word[sum+2], bx		; adding bx (upper 16 bits) to sum
+    17                                  
     18 0000002C B83C000000              	mov rax, EXIT
     19 00000031 BF00000000              	mov rdi, EXIT_SUCCESS
     20 00000036 0F05                    	syscall

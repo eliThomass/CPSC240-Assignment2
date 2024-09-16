@@ -7,14 +7,14 @@ section .data
 section .text
 	global _start
 _start:
-	mov ax, 0
-	mov bx, 0
-	mov ax, word[num1]
-	add ax, word[num2]
-	adc bx, 0
-	mov word[sum], ax
-	mov word[sum+2], bx
-	
+	mov ax, 0				; clearing ax & bx register
+	mov bx, 0				
+	mov ax, word[num1]		; adding num1 to ax
+	add ax, word[num2]		; adding num2 to ax, overflow
+	adc bx, 0				; adding carry to bx
+	mov word[sum], ax		; adding ax (lower 16 bits) to sum
+	mov word[sum+2], bx		; adding bx (upper 16 bits) to sum
+
 	mov rax, EXIT
 	mov rdi, EXIT_SUCCESS
 	syscall
