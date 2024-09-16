@@ -7,9 +7,13 @@ section .data
 section .text
 	global _start
 _start:
+	mov ax, 0
+	mov bx, 0
 	mov ax, word[num1]
 	add ax, word[num2]
+	adc bx, 0
 	mov word[sum], ax
+	mov word[sum+2], bx
 	
 	mov rax, EXIT
 	mov rdi, EXIT_SUCCESS
