@@ -7,13 +7,13 @@ section .data
 section .text
 	global _start
 _start:
-	mov ax, 0
-	mov bx, 0
-	mov ax, word[num1]
-	sub ax, word[num2]
-	sbb bx, 0
-	mov word[dif], ax
-	mov word[dif+2], bx
+	mov ax, 0				; clear ax
+	mov bx, 0				; clear bx
+	mov ax, word[num1]		; add num1 to ax
+	sub ax, word[num2]		; subtract num2 from ax
+	sbb bx, 0				; carry to bx
+	mov word[dif], ax		; add ax (lower 16) to sum
+	mov word[dif+2], bx		; add bx (upper 16) to sum
 	
 	mov rax, EXIT
 	mov rdi, EXIT_SUCCESS
