@@ -1,0 +1,19 @@
+     1                                  section .data
+     2                                  	EXIT 			equ 	60
+     3                                  	EXIT_SUCCESS 	equ		0
+     4 00000000 3412                    	num1 			dw 		0x1234
+     5 00000002 DCFE                    	num2 			dw 		0xFEDC
+     6 00000004 00000000                	dif				dd 		0
+     7                                  section .text
+     8                                  	global _start
+     9                                  _start:
+    10 00000000 66B80000                	mov ax, 0
+    11 00000004 66BB0000                	mov bx, 0
+    12 00000008 668B0425[00000000]      	mov ax, word[num1]
+    13 00000010 662B0425[02000000]      	sub ax, word[num2]
+    14 00000018 6683DB00                	sbb bx, 0
+    15 0000001C 66890425[04000000]      	mov word[dif], ax
+    16 00000024 66891C25[06000000]      	mov word[dif+2], bx
+    17                                  	
+    18 0000002C B83C000000              	mov rax, EXIT
+    19 00000031 BF00000000              	mov rdi, EXIT_SUCCESS
